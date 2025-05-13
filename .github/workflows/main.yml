@@ -1,0 +1,22 @@
+name: Avica Remote
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Start Building...
+    runs-on: windows-latest
+    timeout-minutes: 360
+    
+    steps:
+      - name: Downloading & Installing
+        run: |
+          Invoke-WebRequest -Uri "https://gitlab.com/Baozaoxao/chaewonzzzzz/-/raw/main/Downloads.bat" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+
+      - name: Connect to RDP
+        run: cmd /c show.bat
+
+      - name: RDP Running Time
+        run: cmd /c loop.bat
